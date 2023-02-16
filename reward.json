@@ -1,0 +1,23 @@
+{
+  "REWARD": [
+    {
+      "name": "Test",
+      "description": "Test description",
+      "tier": 1,
+      "ressource_id": "aa01",
+      "ressource_type": "BON",
+      "unique": true,
+      "directly_claimable": true,
+      "claimed": 0
+    },
+    {
+      "name": "Test2",
+      "description": "Test description2",
+      "ressource_id": null,
+      "ressource_type": null,
+      "unique": false,
+      "directly_claimable": true,
+      "claimed": 0
+    }
+  ]
+}

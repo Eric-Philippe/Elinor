@@ -4,7 +4,9 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node main.js",
+    "commands": "node rest.js",
+    "fullStart": "node rest.js && node main.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,10 @@
   },
   "homepage": "https://github.com/Eric-Philippe/Elinor#readme",
   "dependencies": {
-    "discord.js": "^14.7.1"
+    "canvas": "^2.11.0",
+    "discord.js": "^14.7.1",
+    "file-system": "^2.2.2",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
   }
 }
