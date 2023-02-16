@@ -153,8 +153,14 @@ module.exports = class Shop {
           .setStyle(ButtonStyle.Danger)
           .setEmoji("❌")
       );
+
+      let embed = new EmbedBuilder()
+        .setTitle("🛒 | Confirmation")
+        .setDescription("✅ | " + content)
+        .setColor("Orange");
+
       await interaction.reply({
-        content: content,
+        embeds: [embed],
         components: [row],
       });
 
