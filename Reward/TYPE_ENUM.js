@@ -3,3 +3,5 @@ const RewardType = {
   GIFT: "GIFT",
   COUPON: "COUPON",
 };
+
+module.exports = RewardType;

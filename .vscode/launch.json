@@ -11,6 +11,14 @@
       "name": "Launch npm fullStart",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run-script", "fullStart"]
+    },
+    {
+      // Launch npm start
+      "type": "node",
+      "request": "launch",
+      "name": "Launch npm start",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "start"]
     }
   ]
 }

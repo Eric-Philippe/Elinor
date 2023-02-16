@@ -1,13 +1,11 @@
 const {
   SlashCommandBuilder,
   ChatInputCommandInteraction,
-  EmbedBuilder,
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
 } = require("discord.js");
 
-const Card = require("../Card/Card");
 const CardImg = require("../Card/CardImg");
 
 module.exports = {
