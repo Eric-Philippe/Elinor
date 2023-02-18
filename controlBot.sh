@@ -18,11 +18,11 @@ case $choice in
         ;;
     2)
         echo "Stopping the bot"
-        pkill -f "npm start"
+        pkill -f "npm start" &
         ;;
     3)
         echo "Restarting the bot"
-        pkill -f "npm start"
+        pkill -f "npm start" &
         npm start
         ;;
     4)
