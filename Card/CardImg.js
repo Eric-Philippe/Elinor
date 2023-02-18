@@ -58,14 +58,15 @@ module.exports = class CardImg {
         MARGIN + 16 + (i % 4) * (stamp.width + ECART_WIDTH),
         HEIGHT + 7 + Math.floor(i / 4) * (stamp.height + ECART_HEIGHT) + 250
       );
-
-      // Write the credit
-      let credit = cardData.getCredit();
-      // Another font as Arial is not supported, a prettier font would be nice
-      ctx.font = "100px Abyssinica SIL";
-      ctx.fillStyle = "black";
-      ctx.fillText(credit, 685, 1050);
     }
+
+    // Write the credit
+    let credit = cardData.getCredit();
+    // Another font as Arial is not supported, a prettier font would be nice
+    ctx.font = "100px Abyssinica SIL";
+    ctx.fillStyle = "black";
+    ctx.fillText(credit, 685, 1050);
+
     return canva.toBuffer();
   }
 
