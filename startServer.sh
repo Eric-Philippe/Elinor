@@ -13,4 +13,4 @@ fi
 
 # Start the process
 echo "Starting the process"
-npm run startDebug
+npm run startDebug > Server.log &
