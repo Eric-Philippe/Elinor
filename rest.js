@@ -1,6 +1,6 @@
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord.js");
-const TOKEN = require("./token.json").TOKEN;
+const TOKEN = require("./env").TOKEN;
 const clientID = "1072617483468554240";
 const fs = require("fs");
 

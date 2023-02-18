@@ -19,6 +19,22 @@
       "name": "Launch npm start",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run-script", "start"]
+    },
+    {
+      // Launch startDatabase
+      "type": "node",
+      "request": "launch",
+      "name": "Launch startDatabase",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "startDatabase"]
+    },
+    {
+      // Launch startDatabaseDebug
+      "type": "node",
+      "request": "launch",
+      "name": "Launch startDatabaseDebug",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "startDatabaseDebug"]
     }
   ]
 }

@@ -16,9 +16,7 @@ module.exports = {
         .setDescription("Nombre de points à retirer sur la carte.")
         .setRequired(true)
     ),
-  /**
-   * @param {ChatInputCommandInteraction} interaction
-   */
+  /** @param {ChatInputCommandInteraction} interaction */
   async execute(interaction) {
     let card = Card();
     let points = interaction.options.getInteger("nombre-de-points");

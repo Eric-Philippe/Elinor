@@ -9,7 +9,7 @@ const {
   EmbedBuilder,
 } = require("discord.js");
 const { fs } = require("file-system");
-const Rewards = require("../reward.json");
+const Rewards = require("../Reward/RewardUtils").loadRewardsFromJson();
 
 module.exports = class Shop {
   /**

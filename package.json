@@ -4,9 +4,12 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "build": "git pull && npm i && node rest.js && cd database && npm i",
     "start": "node main.js",
     "commands": "node rest.js",
-    "fullStart": "node rest.js && node main.js"
+    "fullStart": "node rest.js && node main.js",
+    "startDatabase": "cd database && npm start",
+    "startDatabaseDebug": "cd database && npm run startDebug"
   },
   "repository": {
     "type": "git",
@@ -19,8 +22,10 @@
   },
   "homepage": "https://github.com/Eric-Philippe/Elinor#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "canvas": "^2.11.0",
     "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
     "file-system": "^2.2.2",
     "fs": "^0.0.1-security",
     "path": "^0.12.7"

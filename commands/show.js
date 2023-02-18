@@ -12,9 +12,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("show")
     .setDescription("Retire un nombre de point sur la carte."),
-  /**
-   * @param {ChatInputCommandInteraction} interaction
-   */
+  /** @param {ChatInputCommandInteraction} interaction */
   async execute(interaction) {
     let row = new ActionRowBuilder().addComponents(
       new ButtonBuilder()

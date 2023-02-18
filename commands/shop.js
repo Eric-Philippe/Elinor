@@ -9,9 +9,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("shop")
     .setDescription("Ouvre le Shop"),
-  /**
-   * @param {ChatInputCommandInteraction} interaction
-   */
+  /** @param {ChatInputCommandInteraction} interaction */
   async execute(interaction) {
     await interaction.deferReply();
     new Shop(interaction);

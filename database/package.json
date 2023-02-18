@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "json-server": "^0.17.0"
+  },
+  "scripts": {
+    "start": "json-server -p 4000 rewards.json",
+    "startDebug": "json-server -p 4000 --watch rewards.json"
+  }
+}
