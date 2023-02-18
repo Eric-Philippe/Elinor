@@ -14,16 +14,16 @@ read -p "Enter your choice: " choice
 case $choice in
     1)
         echo "Starting the bot"
-        npm start
+        npm start &
         ;;
     2)
         echo "Stopping the bot"
-        pkill -f "npm start" &
+        pkill -f "npm start"
         ;;
     3)
         echo "Restarting the bot"
-        pkill -f "npm start" &
-        npm start
+        pkill -f "npm start"
+        npm start &
         ;;
     4)
         echo "Exiting"
