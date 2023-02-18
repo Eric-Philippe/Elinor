@@ -28,6 +28,7 @@ module.exports = class CardImg {
     let stampsNeeded;
     if (stampsTotal % 12 === 0) stampsNeeded = 12;
     else stampsNeeded = stampsTotal % 12;
+    if (stampsTotal == 0) stampsNeeded = 0;
     // Draw the amount of stamps needed on the card
     let canva = canvas.createCanvas(CARD_BACK.width, CARD_BACK.height);
     let ctx = canva.getContext("2d");
