@@ -105,6 +105,15 @@ class _Card {
     }
   }
   /**
+   * Use Credits
+   * @param {Number} creditNumber
+   */
+  useCredits(creditNumber) {
+    for (let i = 0; i < creditNumber; i++) {
+      this.useCredit();
+    }
+  }
+  /**
    * Get the total credit available on the card
    * @returns {Number}
    */

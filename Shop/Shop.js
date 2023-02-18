@@ -1,4 +1,3 @@
-const EMOTE = require("../assets/emotes.json");
 const {
   ChatInputCommandInteraction,
   ButtonBuilder,
@@ -9,8 +8,16 @@ const {
   EmbedBuilder,
 } = require("discord.js");
 const { fs } = require("file-system");
-const Rewards = require("../Reward/RewardUtils").loadRewardsFromJson();
 
+const EMOTE = require("../assets/emotes.json");
+
+const {
+  getRandomReward,
+  getAvailableRewards,
+  claimReward,
+} = require("../Reward/RewardUtils");
+const Inventory = require("../Inventory");
+const Card = require("../Card/Card");
 module.exports = class Shop {
   /**
    * @param {ChatInputCommandInteraction} interaction
@@ -22,6 +29,8 @@ module.exports = class Shop {
     this.interactionResponse = null;
     /** @type {Number} */
     this.page = 0;
+    /** @type {Card} */
+    this.Card = Card();
     this.__init__();
   }
 
@@ -87,9 +96,29 @@ module.exports = class Shop {
           });
 
           setTimeout(async () => {
-            i.editReply({
-              content: "NOTHING LOL",
-              embeds: [],
+            let tier = action.split("tier")[1];
+            this.Card.useCredits(tier);
+            let reward = await getRandomReward(
+              await getAvailableRewards(),
+              tier
+            );
+            await claimReward(reward.id);
+            await Inventory.addItem(reward.id, reward.name);
+            let embed = new EmbedBuilder()
+              .setTitle("🛒 | Reward earned !")
+              .setDescription(
+                "✅ | Vous avez gagné le reward " +
+                  "``" +
+                  reward.name +
+                  "`` " +
+                  " !\n\n" +
+                  "📦 | Vous pouvez claim ce reward avec la commande `/claim`"
+              )
+              .setColor("Gold")
+              .setTimestamp();
+
+            await i.editReply({
+              embeds: [embed],
               components: [],
             });
           }, 4500);
@@ -102,32 +131,48 @@ module.exports = class Shop {
   }
 
   async buildController0(state) {
+    const hasEnoughMoney = (creditNeeded) => {
+      if (this.Card.getCredit() >= creditNeeded) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    const ButtonLeave = new ButtonBuilder()
+      .setCustomId("shop:leave")
+      .setLabel("Quitter")
+      .setStyle(ButtonStyle.Secondary)
+      .setEmoji("🚪")
+      .setDisabled(state);
+
+    const ButtonTier1 = new ButtonBuilder()
+      .setCustomId("shop:tier1")
+      .setLabel("Tier 1")
+      .setStyle(ButtonStyle.Primary)
+      .setEmoji(EMOTE.TIER_ONE)
+      .setDisabled(state ? state : !hasEnoughMoney(1));
+
+    const ButtonTier2 = new ButtonBuilder()
+      .setCustomId("shop:tier2")
+      .setLabel("Tier 2")
+      .setStyle(ButtonStyle.Primary)
+      .setDisabled(state ? state : !hasEnoughMoney(2))
+      .setEmoji(EMOTE.TIER_TWO);
+
+    const ButtonTier3 = new ButtonBuilder()
+      .setCustomId("shop:tier3")
+      .setLabel("Tier 3")
+      .setStyle(ButtonStyle.Primary)
+      .setEmoji(EMOTE.TIER_THREE)
+      .setDisabled(state ? state : !hasEnoughMoney(3));
+
     return [
       new ActionRowBuilder().addComponents(
-        new ButtonBuilder()
-          .setCustomId("shop:leave")
-          .setLabel("Quitter")
-          .setStyle(ButtonStyle.Secondary)
-          .setEmoji("🚪")
-          .setDisabled(state),
-        new ButtonBuilder()
-          .setCustomId("shop:tier1")
-          .setLabel("Tier 1")
-          .setStyle(ButtonStyle.Primary)
-          .setEmoji(EMOTE.TIER_ONE)
-          .setDisabled(state),
-        new ButtonBuilder()
-          .setCustomId("shop:tier2")
-          .setLabel("Tier 2")
-          .setStyle(ButtonStyle.Primary)
-          .setDisabled(state)
-          .setEmoji(EMOTE.TIER_TWO),
-        new ButtonBuilder()
-          .setCustomId("shop:tier3")
-          .setLabel("Tier 3")
-          .setStyle(ButtonStyle.Primary)
-          .setEmoji(EMOTE.TIER_THREE)
-          .setDisabled(state)
+        ButtonLeave,
+        ButtonTier1,
+        ButtonTier2,
+        ButtonTier3
       ),
     ];
   }

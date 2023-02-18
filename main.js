@@ -23,19 +23,33 @@ for (const file of commandFiles) {
 }
 
 client.on("interactionCreate", async (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
-  // Commmand Interaction Type
-  const command = client.commands.get(interaction.commandName);
-  if (!command) return;
+  if (interaction.isChatInputCommand()) {
+    // Commmand Interaction Type
+    const command = client.commands.get(interaction.commandName);
+    if (!command) return;
 
-  try {
-    await command.execute(interaction);
-  } catch (error) {
-    console.error(error);
-    await interaction.reply({
-      content: "Une erreur s'est produite durant la commande !",
-      ephemeral: true,
-    });
+    try {
+      await command.execute(interaction);
+    } catch (error) {
+      console.error(error);
+      await interaction.reply({
+        content: "Une erreur s'est produite durant la commande !",
+        ephemeral: true,
+      });
+    }
+  } else if (interaction.isAutocomplete()) {
+    const command = client.commands.get(interaction.commandName);
+    if (!command) return;
+
+    try {
+      await command.autocomplete(interaction);
+    } catch (error) {
+      console.error(error);
+      await interaction.reply({
+        content: "Une erreur s'est produite durant la commande !",
+        ephemeral: true,
+      });
+    }
   }
 });
 

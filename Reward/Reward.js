@@ -3,8 +3,8 @@ const fs = require("fs");
  * @typedef Reward
  * @property {String} name - Name of the reward
  * @property {String} description - Description of the reward
- * @property {Array<Number>} tier - Tier of the reward The first weight has to be between 0 and 100, the second 0 and 200, the third 0 and 300, etc.
- * @property {String} ressource_id - ID of the ressource
+ * @property {Array<Number>} tier - Tier of the reward maxs [100, 200, 300],
+ * @property {String} id - ID of the ressource
  * @property {String} ressource_type - Type of the ressource
  * @property {Boolean} unique - If the reward is unique
  * @property {Boolean} directly_claimable - If the reward can be claimed directly
@@ -19,10 +19,8 @@ module.exports = class Reward {
     this.name = reward.name;
     /** @type {String} */
     this.description = reward.description;
-    /** @type {Array<Number>} */
-    this.tier = reward.tier;
     /** @type {String} */
-    this.ressource_id = reward.ressource_id;
+    this.id = reward.id;
     /** @type {String} */
     this.ressource_type = reward.ressource_type;
     /** @type {Boolean} */
@@ -30,7 +28,22 @@ module.exports = class Reward {
     /** @type {Boolean} */
     this.directly_claimable = reward.directly_claimable;
     /** @type {Number} */
+    let tier = reward.tier;
     this.claimed = reward.claimed;
+    if (tier[0] < 0 || tier[0] > 100)
+      throw new Error(
+        `Invalid first tier for the reward with the name: ${this.name}`
+      );
+    if (tier[1] < -100 || tier[1] > 200)
+      throw new Error(
+        `Invalid second tier for the reward with the name: ${this.name}`
+      );
+    if (tier[2] < -200 || tier[2] > 400)
+      throw new Error(
+        `Invalid third tier for the reward with the name: ${this.name}`
+      );
+    /** @type {Array<Number>} */
+    this.tier = reward.tier;
   }
   /**
    * Returns if the reward is typed
@@ -59,10 +72,9 @@ module.exports = class Reward {
    */
   getImgAddr() {
     if (!this.isTyped()) return null;
-    let exist = fs.existsSync(`./assets/rewards/${this.ressource_id}.png`);
-    if (!exist)
-      throw new Error(`Reward image doesn't exist: ${this.ressource_id}`);
-    return `./assets/rewards/${this.ressource_id}.png`;
+    let exist = fs.existsSync(`./assets/rewards/${this.id}.png`);
+    if (!exist) throw new Error(`Reward image doesn't exist: ${this.id}`);
+    return `./assets/rewards/${this.id}.png`;
   }
   /**
    * Returns the weight of the reward

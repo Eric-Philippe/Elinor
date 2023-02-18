@@ -1,22 +1,50 @@
 {
   "rewards": [
     {
-      "name": "Test",
-      "description": "Test description",
-      "tier": [100, 0, 0],
-      "ressource_id": "001",
+      "name": "Hug",
+      "description": "A free hug !",
+      "tier": [60, 20, 0],
+      "id": "001",
       "ressource_type": "BON",
-      "unique": true,
+      "unique": false,
       "claimed": 1
     },
     {
-      "name": "Test2",
-      "description": "Test description2",
-      "tier": [0, 100, 300],
-      "ressource_id": null,
+      "name": "Bon pour trois hug",
+      "description": "x3 hugs ! Time to hug !",
+      "tier": [40, 60, 300],
+      "id": "002",
       "ressource_type": null,
       "unique": false,
-      "claimed": 0
+      "claimed": 1
+    },
+    {
+      "name": "A kiss",
+      "description": "A kiss for you !",
+      "tier": [60, 20, 0],
+      "id": "003",
+      "ressource_type": "BON",
+      "unique": false,
+      "claimed": 1
+    },
+    {
+      "name": "Bon pour un massage de 30 minutes",
+      "description": "A massage for you !",
+      "tier": [40, 90, 0],
+      "id": "004",
+      "ressource_type": "BON",
+      "unique": false,
+      "claimed": 1
+    },
+    {
+      "name": "Bon pour le massage de ton choix sur le temps que tu veux !",
+      "description": "A massage for you !",
+      "tier": [5, 170, 0],
+      "id": "005",
+      "ressource_type": "BON",
+      "unique": false,
+      "claimed": 1
     }
-  ]
+  ],
+  "inventory": []
 }
