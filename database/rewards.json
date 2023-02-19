@@ -3,48 +3,129 @@
     {
       "name": "Hug",
       "description": "A free hug !",
-      "tier": [60, 20, 0],
+      "tier": [100, 0, 0],
       "id": "001",
       "ressource_type": "BON",
       "unique": false,
-      "claimed": 1
+      "claimed": 0
     },
     {
       "name": "Bon pour trois hug",
       "description": "x3 hugs ! Time to hug !",
-      "tier": [40, 60, 300],
+      "tier": [75, 60, 90],
       "id": "002",
       "ressource_type": null,
       "unique": false,
-      "claimed": 1
+      "claimed": 0
     },
     {
       "name": "A kiss",
       "description": "A kiss for you !",
-      "tier": [60, 20, 0],
+      "tier": [100, -30, 0],
       "id": "003",
       "ressource_type": "BON",
       "unique": false,
-      "claimed": 1
+      "claimed": 0
     },
     {
       "name": "Bon pour un massage de 30 minutes",
       "description": "A massage for you !",
-      "tier": [40, 90, 0],
+      "tier": [76, 90, 0],
       "id": "004",
       "ressource_type": "BON",
       "unique": false,
-      "claimed": 1
+      "claimed": 0
     },
     {
       "name": "Bon pour le massage de ton choix sur le temps que tu veux !",
       "description": "A massage for you !",
-      "tier": [5, 170, 0],
+      "tier": [20, 170, 0],
       "id": "005",
       "ressource_type": "BON",
       "unique": false,
-      "claimed": 1
+      "claimed": 0
+    },
+    {
+      "name": "Free Pass for a pool party",
+      "description": "A free pass for a pool party !",
+      "tier": [5, 130, 55],
+      "id": "006",
+      "ressource_type": "BON",
+      "unique": true,
+      "claimed": 0
+    },
+    {
+      "name": "A application made just for you !",
+      "description": "You just have to launch it on your computer...",
+      "tier": [20, 130, 35],
+      "id": "007",
+      "ressource_type": "APP",
+      "unique": true,
+      "claimed": 0
+    },
+    {
+      "name": "Meow, Meow, Meow, a meow book",
+      "description": "Meow, Meow, Meow, meoooooow https://www.amazon.fr/Meow-M-Owmeow/dp/1723092304/ref=sr_1_1?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3H8YFB2YSPMRI&keywords=meow&qid=1676795715&sprefix=meow%2Caps%2C91&sr=8-1",
+      "tier": [1, 45, 395],
+      "id": "008",
+      "ressource_type": "GIFT",
+      "unique": true,
+      "claimed": 0
+    },
+    {
+      "name": "Un bracelet de ton choix pour ta fancy watch !",
+      "description": "Choisis ton bracelet pour personnaliser ta montre !",
+      "tier": [1, 50, 345],
+      "id": "009",
+      "ressource_type": "GIFT",
+      "unique": true,
+      "claimed": 0
+    },
+    {
+      "name": "I cook tonight (I'll try...)",
+      "description": "I cook tonight ! Choose your meal before, I'll grab every ingredients and cook it for you !",
+      "tier": [0, 40, 300],
+      "id": "010",
+      "ressource_type": "GIFT",
+      "unique": true,
+      "claimed": 0
+    },
+    {
+      "name": "Coffee pass !",
+      "description": "A coffee pass for you ! Ask me for a coffee and I'll pay it !",
+      "tier": [0, 100, 50],
+      "id": "011",
+      "ressource_type": "GIFT",
+      "unique": false,
+      "claimed": 0
+    },
+    {
+      "name": "Nothing, lol",
+      "description": "Nothing, ahah",
+      "tier": [1, 2, 3],
+      "id": "012",
+      "ressource_type": "BON",
+      "unique": false,
+      "claimed": 0
+    },
+    {
+      "name": "Carte Cadeau 20€ chez Yves Rocher",
+      "description": "Carte Cadeau 20€ chez Yves Rocher",
+      "tier": [0, 10, 390],
+      "id": "013",
+      "ressource_type": "BON",
+      "unique": true,
+      "claimed": 0
+    },
+    {
+      "name": "A YOU Jar",
+      "description": "Ask for anything you'd like, you would like to try or anything",
+      "tier": [30, 40, -60],
+      "id": "014",
+      "ressource_type": "BON",
+      "unique": false,
+      "claimed": 0
     }
   ],
-  "inventory": []
+  "inventory": ["19/02/2023"]
 }
