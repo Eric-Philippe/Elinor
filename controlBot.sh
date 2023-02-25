@@ -14,6 +14,7 @@ read -p "Enter your choice: " choice
 case $choice in
     1)
         echo "Starting the bot"
+        npm install
         npm start &
         ;;
     2)

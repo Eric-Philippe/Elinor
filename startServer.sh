@@ -3,6 +3,8 @@
 # Go to the database directory
 cd database
 
+npm install
+
 # The command'll be npm run startDebug
 # If the process is already running, kill it
 if pgrep -f "npm run startDebug" > /dev/null
